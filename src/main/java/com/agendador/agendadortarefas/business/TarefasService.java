@@ -1,13 +1,14 @@
 package com.agendador.agendadortarefas.business;
 
+
 import com.agendador.agendadortarefas.business.dto.TarefasDTO;
+import com.agendador.agendadortarefas.business.mapper.TarefaUpdateConverter;
 import com.agendador.agendadortarefas.business.mapper.TarefasConverter;
 import com.agendador.agendadortarefas.infrastructure.entity.TarefasEntity;
 import com.agendador.agendadortarefas.infrastructure.enums.StatusNotificacaoEnum;
+import com.agendador.agendadortarefas.infrastructure.exceptions.ResourceNotFoundException;
 import com.agendador.agendadortarefas.infrastructure.repository.TarefasRepository;
 import com.agendador.agendadortarefas.infrastructure.security.JwtUtil;
-import jakarta.annotation.PostConstruct;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ public class TarefasService {
 
     private final TarefasRepository tarefasRepository;
     private final TarefasConverter tarefaConverter;
+    private final TarefaUpdateConverter tarefaUpdateConverter;
     private final JwtUtil jwtUtil;
 
 
@@ -47,12 +49,12 @@ public class TarefasService {
         return tarefaConverter.paraListaTarefasDTO(listaTarefas);
     }
 
-  /*  public void deletaTarefaPorId(String id) {
+    public void deletaTarefaPorId(String id) {
         try {
             tarefasRepository.deleteById(id);
         } catch (ResourceNotFoundException e) {
-            throw new ResourceNotFoundException("Erro ao deletar tarefa por id, id inexistente " + id,
-                    e.getCause());
+            throw new ResourceNotFoundException("Erro ao deletar tarefa por id, id inexistente " + id
+                    + "  " + e.getCause());
         }
     }
 
@@ -78,7 +80,6 @@ public class TarefasService {
             throw new ResourceNotFoundException("Erro ao alterar status da tarefa " + e.getCause());
         }
     }
-}
-*/
+
 
 }

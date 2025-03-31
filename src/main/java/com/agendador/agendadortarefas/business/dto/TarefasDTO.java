@@ -3,8 +3,8 @@ package com.agendador.agendadortarefas.business.dto;
 import com.agendador.agendadortarefas.infrastructure.enums.StatusNotificacaoEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
-
 import java.time.LocalDateTime;
+
 @Setter
 @Getter
 @NoArgsConstructor
