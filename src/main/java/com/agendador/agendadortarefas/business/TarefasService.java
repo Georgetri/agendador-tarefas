@@ -31,12 +31,11 @@ public class TarefasService {
         TarefasEntity entity = tarefaConverter.paraTarefaEntity(dto);
         return tarefaConverter.paraTarefaDTO(tarefasRepository.save(entity));
     }
-/*
+
     public List<TarefasDTO> buscaTarefasAgendadasPorPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal) {
 
         return tarefaConverter.paraListaTarefasDTO(
-                tarefasRepository.findByDataEventoBetweenAndStatusNotificacaoEnum(dataInicial, dataFinal,
-                        StatusNotificacaoEnum.PENDENTE));
+                tarefasRepository.findByDataEventoBetween(dataInicial, dataFinal));
 
     }
 
@@ -48,7 +47,7 @@ public class TarefasService {
         return tarefaConverter.paraListaTarefasDTO(listaTarefas);
     }
 
-    public void deletaTarefaPorId(String id) {
+  /*  public void deletaTarefaPorId(String id) {
         try {
             tarefasRepository.deleteById(id);
         } catch (ResourceNotFoundException e) {
